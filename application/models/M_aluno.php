@@ -68,6 +68,9 @@ class M_aluno extends CI_Model {
 			$this->db->update('aluno', $valores);
 		}
 		
-		
+	}
+
+	public function excluir($id){
+		return $this->db->where("id_aluno", $id)->delete("aluno");
 	}
 }

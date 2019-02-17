@@ -64,11 +64,11 @@ $cpf	= isset ($aluno->cpf_aluno) ? $aluno->cpf_aluno : '';
 	<div class="col6">
 		
 		<div class="col6">	<span> Sexo</span>
-			<input type="radio" name="txt_sexo" value="Masculino" checked="">Masculino
+			<input type="radio" name="txt_sexo" value="Masculino" <?php if($sexo == 'Masculino') echo "checked" ?> >Masculino
 		</div>
 		<div class="col6">
 			<span>&nbsp;</span>
-			<input type="radio" name="txt_sexo" value="Feminino">Feminino
+			<input type="radio" name="txt_sexo" value="Feminino" <?php if($sexo == 'Feminino') echo "checked" ?> >Feminino
 		</div>
 	</div>
 	<div class="col6">

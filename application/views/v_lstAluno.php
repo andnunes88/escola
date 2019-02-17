@@ -1,4 +1,11 @@
-
+<script >
+	function confirmar_exclusao(aluno){
+		if(!confirm("Tem certeza que deseja excluir o aluno: " + aluno + " ?")){
+			return false;
+		}
+		return true;
+	}
+</script>
 <?php include"menu.php";?>
 
 <div class="base-direito">
@@ -56,7 +63,8 @@
 	                <td align="center" class="">	<?php echo $linha->fone_aluno; ?></td>
 					<td align="center" class="">
 						<a href="<?php echo base_url() . "/aluno/editar/" . $linha->id_aluno ?>" class="but editar">Editar</a>
-						<a href="<?php echo base_url() . "/aluno/excluir/" . $linha->id_aluno ?>" class="but excluir">Excluir</a>
+						<a href="<?php echo base_url() . "/aluno/excluir/" . $linha->id_aluno ?>" class="but excluir"
+						 onclick="return confirmar_exclusao('<?php echo $linha->nome_aluno; ?>')">Excluir</a>
 					</td>
 							 
 				</tr>
