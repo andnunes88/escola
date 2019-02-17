@@ -1,3 +1,27 @@
+<?php 
+$id_aluno = isset ($aluno->id_aluno) ? $aluno->id_aluno : '';
+$nome 	= isset ($aluno->nome_aluno) ? $aluno->nome_aluno : '';
+$foto	= isset ($aluno->foto) ? $aluno->foto : '';
+$sexo	= isset ($aluno->sexo) ? $aluno->sexo : '';
+$pai	= isset ($aluno->nome_pai) ? $aluno->nome_pai : '';
+$mae	= isset ($aluno->nome_mae) ? $aluno->nome_mae : '';
+
+$data_nascimento	= isset ($aluno->nascimento) ? $aluno->nascimento : '';
+$email	= isset ($aluno->email_aluno) ? $aluno->email_aluno : '';
+$senha	= isset ($aluno->senha) ? $aluno->senha : '';
+$endereco	= isset ($aluno->endereco_aluno) ? $aluno->endereco_aluno : '';
+$bairro	= isset ($aluno->bairro_aluno) ? $aluno->bairro_aluno : '';
+$cidade	= isset ($aluno->cidade_aluno) ? $aluno->cidade_aluno : '';
+$uf	= isset ($aluno->uf) ? $aluno->uf : '';
+$cep	= isset ($aluno->cep) ? $aluno->cep : '';
+$celular	= isset ($aluno->celular_aluno) ? $aluno->celular_aluno : '';
+$fone_responsavel	= isset ($aluno->fone_responsavel) ? $aluno->fone_responsavel : '';
+$email_responsavel	= isset ($aluno->email_responsavel) ? $aluno->email_responsavel : '';
+$rg	= isset ($aluno->rg_aluno) ? $aluno->rg_aluno : '';
+$cpf	= isset ($aluno->cpf_aluno) ? $aluno->cpf_aluno : '';
+
+?>
+
 <?php include"menu.php";?>
 <div class="base-direito">
 	<h1 class="titulo"><i class="icone cad"></i>CADASTRO DE aluno</h1>
@@ -34,7 +58,7 @@
 	</label>
   <label>
 	<span>Nome</span>
-    <input type="text" name="txt_aluno" id="txt_aluno" value="ADILSON FERREIRA REIS" class="nome">
+    <input type="text" name="txt_aluno" id="txt_aluno" value="<?php echo $nome; ?>" class="nome">
   </label>
   <label>
 	<div class="col6">
@@ -49,17 +73,17 @@
 	</div>
 	<div class="col6">
 		<span>Data</span>
-		<input type="text" name="txt_email" id="txt_email" value="data">
+		<input type="text" name="txt_nascimento" id="txt_nascimento" value="<?php echo $data_nascimento; ?>">
 	</div>
   </label>
   <label>
 	<div class="col6">
 		<span>Email</span>
-		<input type="text" name="txt_facebook" id="txt_facebook" value="pai">
+		<input type="text" name="txt_email" id="txt_email" value="<?php echo $email; ?>">
 	</div>
 	<div class="col6">
 		<span>Senha</span>
-		<input type="text" name="txt_twitter" id="txt_twitter" value="mãe">
+		<input type="text" name="txt_senha" id="txt_senha" value="<?php echo $senha; ?>">
 	</div>
    </label>
     
@@ -67,12 +91,12 @@
   <label>
 	<div class="col6">
 		<span>Fone</span>
-		<input type="text" name="txt_fone" id="txt_fone" value="fone" class="br">
+		<input type="text" name="txt_fone" id="txt_fone" value="<?php echo $fone_responsavel; ?>" class="br">
 	</div>
 
 	<div class="col6">
 		<span>Celular</span>
-		<input type="text" name="txt_celular" id="txt_celular" value="celular" class="br">
+		<input type="text" name="txt_celular" id="txt_celular" value="<?php echo $celular; ?>" class="br">
 	</div>	
   </label>
  
@@ -84,38 +108,38 @@
 
   <label>
 	<span>Endereço</span>
-    <input type="text" name="txt_endereco" id="txt_endereco" value="endereco">
+    <input type="text" name="txt_endereco" id="txt_endereco" value="<?php echo $endereco; ?>">
   </label>
   
   <label>
 	<span>Email responsavel</span>
-    <input type="text" name="txt_endereco" id="txt_endereco" value="email responsavel">
+    <input type="text" name="txt_email_responsavel" id="txt_email_responsavel" value="<?php echo $email_responsavel; ?>">
   </label>
   
   <label>
 	<span>Bairro</span>
-    <input type="text" name="txt_bairro" id="txt_bairro" value="bairro">
+    <input type="text" name="txt_bairro" id="txt_bairro" value="<?php echo $bairro; ?>">
   </label>
   
   <label>
 	<div class="col6">
 		<span class="spans">Cidade</span>
-		<input type="text" name="txt_cidade" id="txt_cidade" value="cidade">
+		<input type="text" name="txt_cidade" id="txt_cidade" value="<?php echo $cidade; ?>">
 	</div>
 	<div class="col6">
 		<span class="spans">CEP</span>
-		<input type="text" name="txt_cep" id="txt_cep" value="cep">
+		<input type="text" name="txt_cep" id="txt_cep" value="<?php echo $cep; ?>">
 	</div>
 	</label>
 	
 	<label>
 	<div class="col6">
 		<span class="spans">Estado</span>
-		<input type="text" name="txt_uf" id="txt_uf" value="ma" >
+		<input type="text" name="txt_uf" id="txt_uf" value="<?php echo $uf; ?>" >
 	</div>
 	<div class="col6">
 		<span class="spans">Celular</span>
-		<input type="text" name="txt_estado_civil" id="txt_estado_civil">
+		<input type="text" name="txt_celular" id="txt_celular" value="<?php echo $celular; ?>">
 	</div>
   </label>
 			
@@ -128,12 +152,12 @@
 			<label>
 				<div class="col6">
 					<span>RG</span>
-					<input type="text" name="txt_rg" id="txt_rg" value="rg">
+					<input type="text" name="txt_rg" id="txt_rg" value="<?php echo $cep; ?>">
 				</div>
 				
 				<div class="col6">
 					<span>CPF</span>
-					<input type="text" name="txt_cpf" id="txt_cpf" value="72120738300" class="br">
+					<input type="text" name="txt_cpf" id="txt_cpf" value="<?php echo $cep; ?>" class="br">
 				</div>
 			</label>
 				
@@ -141,10 +165,8 @@
 		</li>
 	
 	
-	
-	
 	<label align="center">
-			<input type="hidden" name="id_professor" value="7">											
+			<input type="hidden" name="id_aluno" value="<?php echo $id_aluno; ?>">											
 			<input type="submit" name="logar" id="logar" value="Salvar" class="but salvar">
 	</label>
                                   

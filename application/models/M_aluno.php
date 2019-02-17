@@ -7,6 +7,10 @@ class M_aluno extends CI_Model {
 		parent::__construct();
 	}
 
+	public function getAluno($id){
+		return $this->db->where('id_aluno', $id)->get("aluno");
+	}
+
 	public function listaAluno(){
 		return $this->db->get("aluno");
 	}
@@ -56,7 +60,14 @@ class M_aluno extends CI_Model {
 			"cpf_aluno"  => $cpf
 		);
 
-		$this->db->insert('aluno', $valores);
+		if(($id_aluno == "") || ($id_aluno == NULL )){
+			$this->db->insert('aluno', $valores);
+		}else{
+
+			$this->db->where('id_aluno', $id_aluno);
+			$this->db->update('aluno', $valores);
+		}
+		
 		
 	}
 }

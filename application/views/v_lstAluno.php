@@ -55,8 +55,8 @@
 	                <td align="center" class="">	<?php echo $linha->email_aluno; ?></td>
 	                <td align="center" class="">	<?php echo $linha->fone_aluno; ?></td>
 					<td align="center" class="">
-						<a href="" class="but editar">Editar</a>
-						<a href="" class="but excluir">Excluir</a>
+						<a href="<?php echo base_url() . "/aluno/editar/" . $linha->id_aluno ?>" class="but editar">Editar</a>
+						<a href="<?php echo base_url() . "/aluno/excluir/" . $linha->id_aluno ?>" class="but excluir">Excluir</a>
 					</td>
 							 
 				</tr>

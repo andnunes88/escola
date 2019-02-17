@@ -30,4 +30,14 @@ class Aluno extends CI_Controller {
 
 		redirect("aluno");
 	}
+
+	public function editar($id){
+		$this->load->model('M_aluno');
+
+		$dados['aluno'] = $this->M_aluno->getAluno($id)->row();
+		
+		$dados['nome_view'] = 'v_frmAluno';
+
+		$this->load->view('template', $dados);
+	}
 }
