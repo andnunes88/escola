@@ -1,0 +1,105 @@
+
+.row{
+	width:100%;
+	padding:0 0;
+}
+.linha{border:solid 1px #ddd}
+
+/*equivale a uma ""una */
+.col1{
+	width: 6.666666666666667%;
+    float: left;
+    padding:5px 0;
+    margin-left: 1.8%;
+}
+.col1:first-child{
+	margin-left:0%;
+}
+/*equivale a duas ""una */
+.col2{
+	width:15.13333333333333%;
+	float: left;
+    padding:5px 0;
+    margin-left: 1.8%;
+}
+.col2:first-child{
+    margin-left: 0%;
+}
+/*equivale a tres ""una */
+.col3{
+	width:23.6%;
+	float: left;
+    padding:5px 0;
+    margin-left: 1.8%;
+}
+.col3:first-child{
+    margin-left: 0%;
+}
+/*equivale a quatro ""una */
+.col4{
+	width:32.1%;
+	float: left;
+    padding:5px 0;
+    margin-left: 1.8%;
+}
+.col4:first-child{
+    margin-left: 0%;
+}
+
+.col5{
+	width:49%;
+	float: left;
+    padding:5px 0;
+    margin-left: 1.8%;
+}
+.col5:first-child{
+    margin-left: 0%;
+}
+.col6{
+	width:49%;
+	float: left;
+    padding:5px 0;
+    margin-left: 1.8%;
+}
+.col6:first-child{
+    margin-left: 0%;
+}
+/*equivale a oito ""una no*/
+.col8{
+	width:66%;
+	float: left;
+    padding:5px 0;
+	margin-left: 1.8%;
+}
+.col8:first-child{
+    margin-left: 0%;
+}
+/*equivale a nove ""una */
+.col9{
+	width:74.3%;
+	float: left;
+    padding:5px 0;
+	margin-left: 1.8%;
+}
+.col9:first-child{
+    margin-left: 0%;
+}
+
+.col12{
+	width:100%;
+	float: left;
+    padding:5px 0;
+}
+.col2:first-child{
+    margin-left: 0%;
+}
+
+.col10{
+	width:74.5%;
+	float: left;
+    padding:5px 0;
+	margin-left: 1.8%;
+}
+.col10:first-child{
+    margin-left: 0%;
+}
