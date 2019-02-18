@@ -1,3 +1,12 @@
+<script >
+	function confirmar_exclusao(calendario){
+		if(!confirm("Tem certeza que deseja excluir o calendario: " + calendario + " ?")){
+			return false;
+		}
+		return true;
+	}
+</script>
+
 <?php include"menu.php";?>
 
 <div class="base-direito">
@@ -43,30 +52,29 @@
 		</tr>
 		</thead>
 		<tbody>
+            
+            <?php
+            	foreach ($lista as $linha) {            	
+            	?>            	
+
             <tr> 			
-				<td align="center" class="coluna1">1</td>
-                <td align="center" class="coluna1">0000-00-00</td>
-                <td align="center" class="coluna1">Carnaval</td>
-                <td align="center" class="coluna1">S</td>
-                <td align="center" class="coluna1">N</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a><a href="" class="but excluir">Excluir</a></td>
+				<td align="center" class="coluna1"><?php echo $linha->id_calendario ?></td>
+                <td align="center" class="coluna1"><?php echo $linha->data_calendario ?></td>
+                <td align="center" class="coluna1"><?php echo $linha->descricao_calendario ?></td>
+                <td align="center" class="coluna1"><?php echo $linha->feriado ?></td>
+                <td align="center" class="coluna1"><?php echo $linha->tem_aula ?></td>
+				<td align="center" class="coluna1">
+					<a href="<?php echo base_url() . "/calendario/editar/" . $linha->id_calendario ?>" class="but editar">Editar</a>
+						<a href="<?php echo base_url() . "/calendario/excluir/" . $linha->id_calendario ?>" class="but excluir"
+						 onclick="return confirmar_exclusao('<?php echo $linha->descricao_calendario; ?>')">Excluir</a>
+				</td>
 			</tr>
-            <tr> 			
-				<td align="center" class="coluna2">1</td>
-                <td align="center" class="coluna2">0000-00-00</td>
-                <td align="center" class="coluna2">Carnaval</td>
-                <td align="center" class="coluna2">S</td>
-                <td align="center" class="coluna2">N</td>
-				<td align="center" class="coluna2"><a href="" class="but editar">Editar</a><a href="" class="but excluir">Excluir</a></td>
-			</tr>
-            <tr> 			
-				<td align="center" class="coluna1">1</td>
-                <td align="center" class="coluna1">0000-00-00</td>
-                <td align="center" class="coluna1">Carnaval</td>
-                <td align="center" class="coluna1">S</td>
-                <td align="center" class="coluna1">N</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a><a href="" class="but excluir">Excluir</a></td>
-			</tr>
+
+			<?php
+
+				}
+            ?>
+            
 </tbody>
 </table>
 	</div>

@@ -5,17 +5,15 @@
 		<li><a href="">Ano letivo </a>		
 			<ul>
 				<li><a href="<?php echo base_url() ?>ano">listar/ editar</a></li>
-				<li><a href="<?php echo base_url() ?>ano/novo">Cadastrar</a></li>
-				<li><a href="index.php?link=4">Ver calendario</a></li>
+				<li><a href="<?php echo base_url() ?>ano/novo">Cadastrar</a></li>				
 			</ul>
 		</li>
 
 	<li><a href="">Calendários </a>	
         <ul>
 			<li><a href="<?php echo base_url() ?>calendario">Listar/ editar</a></li>
-			<li><a href="<?php echo base_url() ?>calendario/novo">ver calendario</a></li>
-			<li><a href="">Cadastrar</a></li>
-			
+			<li><a href="<?php echo base_url() ?>calendario/novo">Cadastrar</a></li>
+						
         </ul>
     </li>
 	

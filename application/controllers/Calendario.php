@@ -16,7 +16,9 @@ class Calendario extends CI_Controller {
 	}
 
 	public function novo()
-	{
+	{	
+		$this->load->model("M_ano");
+		$dados['anoLetivo'] = $this->M_ano->listaAnoLetivo()->result();
 		$dados['nome_view'] = 'v_frmCalendario';
 
 		$this->load->view('template', $dados);
@@ -33,6 +35,8 @@ class Calendario extends CI_Controller {
 
 	public function editar($id){
 		$this->load->model('M_calendario');
+		$this->load->model("M_ano");
+		$dados['anoLetivo'] = $this->M_ano->listaAnoLetivo()->result();
 
 		$dados['calendario'] = $this->M_calendario->getCalendario($id)->row();
 
