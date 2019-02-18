@@ -7,70 +7,63 @@ class M_ano extends CI_Model {
 		parent::__construct();
 	}
 
-	public function getAluno($id){
-		return $this->db->where('id_ano', $id)->get("ano_letivo");
+	public function getAnoLetivo($id){
+		return $this->db->where('id_ano_letivo', $id)->get("ano_letivo");
 	}
 
-	public function listaAluno(){
+	public function listaAnoLetivo(){
 		return $this->db->get("ano_letivo");
 	}
 
 	public function salvar()
 	{
 		$id_ano	= $this->input->post("id_ano");
-		$foto	= $this->input->post("txt_foto");
-		$ano	= $this->input->post("txt_ano");
-		$sexo	= $this->input->post("txt_sexo");
-		$pai	= $this->input->post("txt_pai");
-		$mae	= $this->input->post("txt_mae");
-
-		$data_nascimento	= $this->input->post("txt_nascimento");
-		$email	= $this->input->post("txt_email");
-		$senha	= $this->input->post("txt_senha");
-		$endereco	= $this->input->post("txt_endereco");
-		$bairro	= $this->input->post("txt_bairro");
-		$cidade	= $this->input->post("txt_cidade");
-		$uf	= $this->input->post("txt_uf");
-		$cep	= $this->input->post("txt_cep");
-		$celular	= $this->input->post("txt_celular");
-		$fone_responsavel	= $this->input->post("txt_fone_responsavel");
-		$email_responsavel	= $this->input->post("txt_email_responsavel");
-		$rg	= $this->input->post("txt_rg");
-		$cpf	= $this->input->post("txt_cpf");
+		$descricao = $this->input->post("txt_descricao");
+	    $qtde_turmas = $this->input->post("txt_qtde_turmas");
+	    $inicio_matricula = $this->input->post("txt_inicio_matricula");
+	    $fim_matricula = $this->input->post("txt_fim_matricula");
+	    $inicio_ano_letivo = $this->input->post("txt_inicio_ano_letivo");
+	    $fim_ano_letivo = $this->input->post("txt_fim_ano_letivo");
+	    $inicio_primeiro_bimestre = $this->input->post("txt_inicio_primeiro_bimestre");
+	    $fim_primeiro_bimestre = $this->input->post("txt_fim_primeiro_bimestre");
+	    $inicio_segundo_bimestre = $this->input->post("txt_inicio_segundo_bimestre");
+	    $fim_segundo_bimestre = $this->input->post("txt_fim_segundo_bimestre");
+	    $inicio_terceiro_bimestre = $this->input->post("txt_inicio_terceiro_bimestre");;
+	    $fim_terceiro_bimestre = $this->input->post("txt_fim_terceiro_bimestre");
+	    $inicio_quarto_bimestre = $this->input->post("txt_inicio_quarto_bimestre");
+	    $fim_quarto_bimestre = $this->input->post("txt_fim_quarto_bimestre");		
 
 		$valores = array(
-			"id_ano" => $id_ano,	
-			"foto" => $foto,	
-			"nome_ano"  => $ano,	
-			"sexo"  => $sexo,	
-			"nome_pai"  => $pai,	
-			"nome_mae"  => $mae,	
-			"nascimento"  => $data_nascimento,	
-			"email_ano"  => $email,	
-			"senha"  => $senha,	
-			"endereco_ano"  => $endereco,	
-			"bairro_ano"  => $bairro,
-			"cidade_ano"  => $cidade,	
-			"uf"  => $uf,	
-			"cep"  => $cep,	
-			"celular_ano"  => $celular,	
-			"fone_responsavel"  => $fone_responsavel,	
-			"email_responsavel"  => $email_responsavel,	
-			"rg_ano"  => $rg,
-			"cpf_ano"  => $cpf
+			"id_ano_letivo" => $id_ano,	
+			"descricao" => $descricao,	
+			"qtde_turmas"  => $qtde_turmas,	
+			"inicio_matricula"  => $inicio_matricula,	
+			"fim_matricula"  => $fim_matricula,	
+			"inicio_ano_letivo"  => $inicio_ano_letivo,	
+			"fim_ano_letivo"  => $fim_ano_letivo,	
+			"inicio_primeiro_bimestre"  => $inicio_primeiro_bimestre,	
+			"fim_primeiro_bimestre"  => $fim_primeiro_bimestre,	
+			"inicio_segundo_bimestre"  => $inicio_segundo_bimestre,	
+			"fim_segundo_bimestre"  => $fim_segundo_bimestre,	
+			"inicio_terceiro_bimestre"  => $inicio_terceiro_bimestre,	
+			"fim_terceiro_bimestre"  => $fim_terceiro_bimestre,	
+			"inicio_quarto_bimestre"  => $inicio_quarto_bimestre,	
+			"fim_quarto_bimestre"  => $fim_quarto_bimestre
+		
 		);
 
+		
 		if(($id_ano == "") || ($id_ano == NULL )){
 			$this->db->insert('ano_letivo', $valores);
 		}else{
 
-			$this->db->where('id_ano', $id_ano);
+			$this->db->where('id_ano_letivo', $id_ano);
 			$this->db->update('ano_letivo', $valores);
 		}
 		
 	}
 
 	public function excluir($id){
-		return $this->db->where("id_ano", $id)->delete("ano_letivo");
+		return $this->db->where("id_ano_letivo", $id)->delete("ano_letivo");
 	}
 }
