@@ -1,3 +1,12 @@
+<script >
+	function confirmar_exclusao(disciplina){
+		if(!confirm("Tem certeza que deseja excluir a disciplina: " + disciplina + " ?")){
+			return false;
+		}
+		return true;
+	}
+</script>
+
 <?php include"menu.php";?>
 
 <div class="base-direito">
@@ -40,42 +49,25 @@
 		</tr>
 		</thead>
 		<tbody>
+
+			<?php
+				foreach ($lista as $linha) {
+				?>				
             <tr> 			
-				<td align="center" class="coluna1">1</td>
-                <td align="left" class="coluna1">Análise de Circuitos de CC e CA</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna1"><a href="" class="but excluir">Excluir</a></td>						 
+				<td align="center" class="coluna1"><?php echo $linha->id_disciplina ?></td>
+                <td align="left" class="coluna1"><?php echo $linha->disciplina ?></td>
+				<td align="center" class="coluna1">
+					<a href="<?php echo base_url() . "/disciplina/editar/" . $linha->id_disciplina ?>" class="but editar">Editar</a>
+				</td>
+				<td align="center" class="coluna1">
+					<a href="<?php echo base_url() . "/disciplina/excluir/" . $linha->id_disciplina ?>" class="but excluir"
+						 onclick="return confirmar_exclusao('<?php echo $linha->disciplina; ?>')">Excluir</a>	
+				</td>
+
 			</tr>
-            <tr> 			
-				<td align="center" class="coluna2">1</td>
-                <td align="left" class="coluna2">Análise de Circuitos de CC e CA</td>
-				<td align="center" class="coluna2"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna2"><a href="" class="but excluir">Excluir</a></td>						 
-			</tr>
-            <tr> 			
-				<td align="center" class="coluna1">1</td>
-                <td align="left" class="coluna1">Análise de Circuitos de CC e CA</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna1"><a href="" class="but excluir">Excluir</a></td>						 
-			</tr>
-            <tr> 			
-				<td align="center" class="coluna2">1</td>
-				<td align="left" class="coluna2">Análise de Circuitos de CC e CA</td>
-				<td align="center" class="coluna2"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna2"><a href="" class="but excluir">Excluir</a></td>						 
-			</tr>
-            <tr> 			
-				<td align="center" class="coluna1">1</td>
-               <td align="left" class="coluna1">Análise de Circuitos de CC e CA</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna1"><a href="" class="but excluir">Excluir</a></td>						 
-			</tr>
-            <tr> 			
-				<td align="center" class="coluna2">1</td>
-                 <td align="left" class="coluna2">Análise de Circuitos de CC e CA</td>
-				<td align="center" class="coluna2"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna2"><a href="" class="but excluir">Excluir</a></td>						 
-			</tr>
+
+			<?php	} 	 ?>
+        
 </tbody>
 </table>
 	</div>
