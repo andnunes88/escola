@@ -11,7 +11,7 @@ class Horario extends CI_Controller {
 		$this->load->model("M_horario");
 
 		$dados['lista'] = $this->M_horario->listaHorario()->result();
-
+		
 		$this->load->view('template', $dados);
 	}
 

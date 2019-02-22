@@ -1,4 +1,14 @@
-<?php include"menu.php";?>
+
+<script >
+	function confirmar_exclusao(dado){
+		if(!confirm("Tem certeza que deseja excluir o registro: " + dado + " ?")){
+			return false;
+		}
+		return true;
+	}
+</script>
+
+<?php include"menu.php"; ?>
 
 <div class="base-direito">
 <div class="base-lista">
@@ -43,42 +53,27 @@
 		</tr>
 		</thead>
 		<tbody>
+    	
+    	<?php 
+    		foreach ($lista as $linha) {
+    			?>    		      
+	
             <tr> 			
-				<td align="center" class="coluna1">1</td>
-                <td align="left" class="coluna1">1º Horário</td>
-                <td align="center" class="coluna1">07:00</td>
-                <td align="center" class="coluna1">matutino</td>
-                <td align="center" class="coluna1">00/00/0000</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna1"><a href="" class="but excluir">Excluir</a></td>						 
+				<td align="center" class="coluna1"><?php echo $linha->id_horario?></td>
+                <td align="left" class="coluna1"><?php echo $linha->horario?></td>
+                <td align="center" class="coluna1"><?php echo $linha->turno?></td>
+                <td align="center" class="coluna1"><?php echo $linha->inicio?></td>
+                <td align="center" class="coluna1"><?php echo $linha->fim?></td>
+				<td align="center" class="coluna1">
+					<a href="<?php echo base_url() . "/horario/editar/" . $linha->id_horario ?>" class="but editar">Editar</a>
+					<a href="<?php echo base_url() . "/horario/excluir/" . $linha->id_horario ?>" class="but excluir"
+						onclick="return confirmar_exclusao('<?php echo $linha->horario; ?>')">Excluir</a>	
+				</td>
+							 
 			</tr>
-            <tr> 			
-				<td align="center" class="coluna2">1</td>
-                <td align="left" class="coluna2">1º Horário</td>
-                <td align="center" class="coluna2">07:00</td>
-                <td align="center" class="coluna2">matutino</td>
-                <td align="center" class="coluna2">00/00/0000</td>
-				<td align="center" class="coluna2"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna2"><a href="" class="but excluir">Excluir</a></td>						 
-			</tr>
-            <tr> 			
-				<td align="center" class="coluna1">1</td>
-                <td align="left" class="coluna1">1º Horário</td>
-                <td align="center" class="coluna1">07:00</td>
-                <td align="center" class="coluna1">matutino</td>
-                <td align="center" class="coluna1">00/00/0000</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna1"><a href="" class="but excluir">Excluir</a></td>						 
-			</tr>
-            <tr> 			
-				<td align="center" class="coluna2">1</td>
-                <td align="left" class="coluna2">1º Horário</td>
-                <td align="center" class="coluna2">07:00</td>
-                <td align="center" class="coluna2">matutino</td>
-                <td align="center" class="coluna2">00/00/0000</td>
-				<td align="center" class="coluna2"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna2"><a href="" class="but excluir">Excluir</a></td>						 
-			</tr>
+
+		<?php }   	?>  
+            
 		</tbody>
 		</table>
 	</div>
