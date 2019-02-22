@@ -2,11 +2,11 @@
 <div class="base-direito">
 	<h1 class="titulo"><i class="icone cad"></i>CADASTRO DE SÉRIE</h1>
 <div class="base-form">
-	<form action="" method="post">
+	<form action="<?php echo base_url() ?>/serie/salvar" method="post">
 		<label>
         
         <span>Série</span>
-            <input type="text" name="" id="" value="">
+            <input type="text" name="txt_serie" id="" value="">
        </label>
 	  	
            <input type="hidden" name="txt_id_ano_letivo" value="">					

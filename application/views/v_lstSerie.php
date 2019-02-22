@@ -1,3 +1,12 @@
+<script >
+	function confirmar_exclusao(dado){
+		if(!confirm("Tem certeza que deseja excluir o registro: " + dado + " ?")){
+			return false;
+		}
+		return true;
+	}
+</script>
+
 <?php include"menu.php";?>
 
 <div class="base-direito">
@@ -39,42 +48,25 @@
 		</tr>
 		</thead>
 		<tbody>
+            
+		<?php
+			foreach ($lista as $linha) {
+				?>
+			
             <tr> 			
-				<td align="center" class="coluna1">1</td>
-                <td align="left" class="coluna1">Análise de Circuitos de CC e CA</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna1"><a href="" class="but excluir">Excluir</a></td>						 
+				<td align="center" class="coluna1"><?php echo $linha->id_serie ?></td>
+                <td align="left" class="coluna1"><?php echo $linha->serie ?></td>
+				
+				<td align="center" class="coluna1">
+					<a href="<?php echo base_url() . "/serie/editar/" . $linha->id_serie ?>" class="but editar">Editar</a>
+					<a href="<?php echo base_url() . "/serie/excluir/" . $linha->id_serie ?>" class="but excluir"
+						 onclick="return confirmar_exclusao('<?php echo $linha->serie; ?>')">Excluir</a>
+				</td>
+				
 			</tr>
-            <tr> 			
-				<td align="center" class="coluna2">1</td>
-                <td align="left" class="coluna2">Análise de Circuitos de CC e CA</td>
-				<td align="center" class="coluna2"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna2"><a href="" class="but excluir">Excluir</a></td>						 
-			</tr>
-            <tr> 			
-				<td align="center" class="coluna1">1</td>
-                <td align="left" class="coluna1">Análise de Circuitos de CC e CA</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna1"><a href="" class="but excluir">Excluir</a></td>						 
-			</tr>
-            <tr> 			
-				<td align="center" class="coluna2">1</td>
-				<td align="left" class="coluna2">Análise de Circuitos de CC e CA</td>
-				<td align="center" class="coluna2"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna2"><a href="" class="but excluir">Excluir</a></td>						 
-			</tr>
-            <tr> 			
-				<td align="center" class="coluna1">1</td>
-               <td align="left" class="coluna1">Análise de Circuitos de CC e CA</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna1"><a href="" class="but excluir">Excluir</a></td>						 
-			</tr>
-            <tr> 			
-				<td align="center" class="coluna2">1</td>
-                 <td align="left" class="coluna2">Análise de Circuitos de CC e CA</td>
-				<td align="center" class="coluna2"><a href="" class="but editar">Editar</a></td>
-				<td align="center" class="coluna2"><a href="" class="but excluir">Excluir</a></td>						 
-			</tr>
+
+		<?php	}		?>
+          
 </tbody>
 </table>
 	</div>
