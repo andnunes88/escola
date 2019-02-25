@@ -7,11 +7,11 @@ class M_professor extends CI_Model {
 		parent::__construct();
 	}
 
-	public function getAluno($id){
+	public function getProfessor($id){
 		return $this->db->where('id_professor', $id)->get("professor");
 	}
 
-	public function listaAluno(){
+	public function listaProfessor(){
 		return $this->db->get("professor");
 	}
 
@@ -21,47 +21,37 @@ class M_professor extends CI_Model {
 		$foto	= $this->input->post("txt_foto");
 		$professor	= $this->input->post("txt_professor");
 		$sexo	= $this->input->post("txt_sexo");
-		$pai	= $this->input->post("txt_pai");
-		$mae	= $this->input->post("txt_mae");
-
-		$data_nascimento	= $this->input->post("txt_nascimento");
 		$email	= $this->input->post("txt_email");
-		$senha	= $this->input->post("txt_senha");
 		$endereco	= $this->input->post("txt_endereco");
 		$bairro	= $this->input->post("txt_bairro");
 		$cidade	= $this->input->post("txt_cidade");
 		$uf	= $this->input->post("txt_uf");
 		$cep	= $this->input->post("txt_cep");
 		$celular	= $this->input->post("txt_celular");
-		$fone_responsavel	= $this->input->post("txt_fone_responsavel");
-		$email_responsavel	= $this->input->post("txt_email_responsavel");
+		$fone	= $this->input->post("txt_fone");
+		$email	= $this->input->post("txt_email");
 		$rg	= $this->input->post("txt_rg");
 		$cpf	= $this->input->post("txt_cpf");
 
 		$valores = array(
 			"id_professor" => $id_professor,	
-			"foto" => $foto,	
+			"imagem_professor" => $foto,	
 			"nome_professor"  => $professor,	
-			"sexo"  => $sexo,	
-			"nome_pai"  => $pai,	
-			"nome_mae"  => $mae,	
-			"nascimento"  => $data_nascimento,	
+			"sexo_professor"  => $sexo,	
 			"email_professor"  => $email,	
-			"senha"  => $senha,	
 			"endereco_professor"  => $endereco,	
 			"bairro_professor"  => $bairro,
 			"cidade_professor"  => $cidade,	
-			"uf"  => $uf,	
-			"cep"  => $cep,	
+			"uf_professor"  => $uf,	
+			"uf_professor"  => $cep,	
 			"celular_professor"  => $celular,	
-			"fone_responsavel"  => $fone_responsavel,	
-			"email_responsavel"  => $email_responsavel,	
+			"fone_professor"  => $fone,	
 			"rg_professor"  => $rg,
 			"cpf_professor"  => $cpf
 		);
 
 		if(($id_professor == "") || ($id_professor == NULL )){
-			$this->db->insert('professor_escolar', $valores);
+			$this->db->insert('professor', $valores);
 		}else{
 
 			$this->db->where('id_professor', $id_professor);

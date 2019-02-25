@@ -42,8 +42,8 @@
 	<li><a href="">PROFESSORES </a>
 
         <ul>
-			<li><a href="index.php?link=13">Listar/ editar</a></li>
-			<li><a href="index.php?link=14">Cadastrar</a></li>
+			<li><a href="<?php echo base_url() ?>professor">Listar/ editar</a></li>
+			<li><a href="<?php echo base_url() ?>professor/novo">Cadastrar</a></li>
 			<li><a href="index.php?link=15">Cadastrar disciplina</a></li>
         </ul>
 	</li>
@@ -60,7 +60,6 @@
 	
 	<li><a href="">Turma</a>
         <ul>
-			<li><a href="index.php?link=18">Listar/ editar</a></li>
 			<li><a href="index.php?link=19">Cadastrar</a></li>
 			<li><a href="index.php?link=20">aluno por turma</a></li>
 			<li><a href="index.php?link=21">Disciplina por turma</a></li>

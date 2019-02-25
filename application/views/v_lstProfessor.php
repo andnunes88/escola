@@ -1,4 +1,13 @@
-<?php include"menu.php";?>
+<script >
+	function confirmar_exclusao(dado){
+		if(!confirm("Tem certeza que deseja excluir o registro: " + dado + " ?")){
+			return false;
+		}
+		return true;
+	}
+</script>
+
+<?php include"menu.php"; ?>
 
 <div class="base-direito">
 <div class="base-lista">
@@ -40,31 +49,25 @@
 		</tr>
 		</thead>
 		<tbody>
+
+		<?php 
+			foreach ($lista as $linha) {
+			?>
+				
             <tr> 			
-				<td align="center" class="coluna1">1</td>
-                <td align="left" class="coluna1">	ADILSON FERREIRA REIS</td>
-                <td align="center" class="coluna1">	ADILSON-FERREIRA@GMAIL.COM</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a><a href="" class="but excluir">Excluir</a></td>
+				<td align="center" class="coluna1"><?php echo $linha->id_professor ?></td>
+                <td align="left" class="coluna1"><?php echo $linha->nome_professor ?></td>
+                <td align="center" class="coluna1"><?php echo $linha->email_professor ?></td>
+				<td align="center" class="coluna1">
+					<a href="<?php echo base_url() . "/professor/editar/" . $linha->id_professor ?>" class="but editar">Editar</a>
+					<a href="<?php echo base_url() . "/professor/excluir/" . $linha->id_professor ?>" class="but excluir"
+						onclick="return confirmar_exclusao('<?php echo $linha->nome_professor; ?>')">Excluir</a>
+				</td>
 						 
 			</tr>
-            <tr> 			
-				<td align="center" class="coluna2">1</td>
-                <td align="left" class="coluna2">	ADILSON FERREIRA REIS</td>
-                <td align="center" class="coluna2">	ADILSON-FERREIRA@GMAIL.COM</td>
-				<td align="center" class="coluna2"><a href="" class="but editar">Editar</a><a href="" class="but excluir">Excluir</a></td>	 
-			</tr>
-            <tr> 			
-				<td align="center" class="coluna1">1</td>
-                <td align="left" class="coluna1">	ADILSON FERREIRA REIS</td>
-                <td align="center" class="coluna1">	ADILSON-FERREIRA@GMAIL.COM</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a><a href="" class="but excluir">Excluir</a></td>			 
-			</tr>
-            <tr> 			
-				<td align="center" class="coluna2">1</td>
-                <td align="left" class="coluna2">	ADILSON FERREIRA REIS</td>
-                <td align="center" class="coluna2">	ADILSON-FERREIRA@GMAIL.COM</td>
-				<td align="center" class="coluna2"><a href="" class="but editar">Editar</a><a href="" class="but excluir">Excluir</a></td>		 
-			</tr>
+
+		<?php }			?>
+           
 		</tbody>
 		</table>
 	</div>
