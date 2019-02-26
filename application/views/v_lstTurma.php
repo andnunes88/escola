@@ -1,3 +1,12 @@
+<script >
+	function confirmar_exclusao(dado){
+		if(!confirm("Tem certeza que deseja excluir o registro: " + dado + " ?")){
+			return false;
+		}
+		return true;
+	}
+</script>
+
 <?php include"menu.php";?>
 
 <div class="base-direito">
@@ -41,28 +50,26 @@
 		</tr>
 		</thead>
 		<tbody>
+
+			<?php 
+				foreach ($lista as $linha) {
+			?>		
+
             <tr> 			
-				<td align="center" class="coluna1">1</td>
-                <td align="left" class="coluna1">MATUTINO 101 - ELETROMECÂNICA</td>
-                <td align="center" class="coluna1">	MATUTINO</td>
-                <td align="center" class="coluna1">	1º Ano</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a><a href="" class="but excluir">Excluir</a></td>
+				<td align="center" class="coluna1"> <?php echo $linha->id_turma?></td>
+                <td align="left" class="coluna1"> <?php echo $linha->turma?></td>
+                <td align="center" class="coluna1">	<?php echo $linha->id_sala?></td>
+                <td align="center" class="coluna1">	<?php echo $linha->id_serie?></td>
+				<td align="center" class="coluna1">
+					<a href="<?php echo base_url() . "/turma/editar/" . $linha->id_turma ?>" class="but editar">Editar</a>
+					<a href="<?php echo base_url() . "/turma/excluir/" . $linha->id_turma ?>" class="but excluir"
+						 onclick="return confirmar_exclusao('<?php echo $linha->turma; ?>')">Excluir</a>
+				</td>
 						 
 			</tr>
-            <tr> 			
-				<td align="center" class="coluna2">1</td>
-                <td align="left" class="coluna2">MATUTINO 101 - ELETROMECÂNICA</td>
-                <td align="center" class="coluna2">	MATUTINO</td>
-                <td align="center" class="coluna2">	1º Ano</td>
-				<td align="center" class="coluna2"><a href="" class="but editar">Editar</a><a href="" class="but excluir">Excluir</a></td>
-			</tr>
-            <tr> 			
-				<td align="center" class="coluna1">1</td>
-                <td align="left" class="coluna1">MATUTINO 101 - ELETROMECÂNICA</td>
-                <td align="center" class="coluna1">	MATUTINO</td>
-                <td align="center" class="coluna1">	1º Ano</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a><a href="" class="but excluir">Excluir</a></td>	 
-			</tr>
+
+			<?php } ?>
+           
 		</tbody>
 		</table>
 	</div>

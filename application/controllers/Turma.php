@@ -33,9 +33,13 @@ class Turma extends CI_Controller {
 
 	public function editar($id){
 		$this->load->model('M_turma');
+		$this->load->model('M_serie');
+		$this->load->model('M_sala');
 
-		$dados['turma'] = $this->M_turma->getTurma($id)->row();
-
+		$dados['turma'] = $this->M_turma->getTurma($id)->row();		
+		$dados['serie'] = $this->M_serie->listaSerie()->result();		
+		$dados['salas'] = $this->M_sala->listaSerie()->result();
+		
 		$dados['nome_view'] = 'v_frmTurma';
 
 		$this->load->view('template', $dados);

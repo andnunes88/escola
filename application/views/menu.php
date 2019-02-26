@@ -60,12 +60,13 @@
 	
 	<li><a href="">Turma</a>
         <ul>
-			<li><a href="index.php?link=19">Cadastrar</a></li>
-			<li><a href="index.php?link=20">aluno por turma</a></li>
-			<li><a href="index.php?link=21">Disciplina por turma</a></li>
-			<li><a href="index.php?link=22">Professor por turma</a></li>
-			<li><a href="index.php?link=23">Montar horário</a></li>
-			<li><a href="index.php?link=24">Detalhes da turma</a></li>
+			<li><a href="<?php echo base_url() ?>turma">Listar / Editar</a></li>
+			<li><a href="<?php echo base_url() ?>turma/novo">Cadastrar</a></li>
+			<li><a href="<?php echo base_url() ?>turma">aluno por turma</a></li>
+			<li><a href="<?php echo base_url() ?>turma">Disciplina por turma</a></li>
+			<li><a href="<?php echo base_url() ?>turma">Professor por turma</a></li>
+			<li><a href="<?php echo base_url() ?>turma">Montar horário</a></li>
+			<li><a href="<?php echo base_url() ?>turma">Detalhes da turma</a></li>
         </ul>
 	</li>	
 	

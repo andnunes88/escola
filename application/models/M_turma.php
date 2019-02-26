@@ -7,61 +7,37 @@ class M_turma extends CI_Model {
 		parent::__construct();
 	}
 
-	public function getAluno($id){
+	public function getTurma($id){
 		return $this->db->where('id_turma', $id)->get("turma");
 	}
 
-	public function listaAluno(){
-		return $this->db->get("turma");
+	public function listaTurma(){
+		//$this->db->select("turma.*, serie.serie, sala.sala");
+		$this->db->select("*");
+		$this->db->from("turma");
+		//$this->db->join("serie", "serie.id_serie = turma.id_serie");
+		//$this->db->join("sala", "sala.id_sala = turma.id_sala");
+		return $this->db->get();
 	}
 
 	public function salvar()
 	{
-		$id_turma	= $this->input->post("id_turma");
-		$foto	= $this->input->post("txt_foto");
+		$id_turma	= $this->input->post("txt_id_turma");
 		$turma	= $this->input->post("txt_turma");
-		$sexo	= $this->input->post("txt_sexo");
-		$pai	= $this->input->post("txt_pai");
-		$mae	= $this->input->post("txt_mae");
-
-		$data_nascimento	= $this->input->post("txt_nascimento");
-		$email	= $this->input->post("txt_email");
-		$senha	= $this->input->post("txt_senha");
-		$endereco	= $this->input->post("txt_endereco");
-		$bairro	= $this->input->post("txt_bairro");
-		$cidade	= $this->input->post("txt_cidade");
-		$uf	= $this->input->post("txt_uf");
-		$cep	= $this->input->post("txt_cep");
-		$celular	= $this->input->post("txt_celular");
-		$fone_responsavel	= $this->input->post("txt_fone_responsavel");
-		$email_responsavel	= $this->input->post("txt_email_responsavel");
-		$rg	= $this->input->post("txt_rg");
-		$cpf	= $this->input->post("txt_cpf");
+		$id_serie	= $this->input->post("txt_id_serie");
+		$id_sala	= $this->input->post("txt_id_sala");
+		$data_cadastro	= $this->input->post("txt_data_turma");
 
 		$valores = array(
 			"id_turma" => $id_turma,	
-			"foto" => $foto,	
-			"nome_turma"  => $turma,	
-			"sexo"  => $sexo,	
-			"nome_pai"  => $pai,	
-			"nome_mae"  => $mae,	
-			"nascimento"  => $data_nascimento,	
-			"email_turma"  => $email,	
-			"senha"  => $senha,	
-			"endereco_turma"  => $endereco,	
-			"bairro_turma"  => $bairro,
-			"cidade_turma"  => $cidade,	
-			"uf"  => $uf,	
-			"cep"  => $cep,	
-			"celular_turma"  => $celular,	
-			"fone_responsavel"  => $fone_responsavel,	
-			"email_responsavel"  => $email_responsavel,	
-			"rg_turma"  => $rg,
-			"cpf_turma"  => $cpf
+			"id_serie" => $id_serie,	
+			"id_sala"  => $id_sala,	
+			"turma"  => $turma,	
+			"data_cadastro"  => $data_cadastro			
 		);
 
 		if(($id_turma == "") || ($id_turma == NULL )){
-			$this->db->insert('turma_escolar', $valores);
+			$this->db->insert('turma', $valores);
 		}else{
 
 			$this->db->where('id_turma', $id_turma);
