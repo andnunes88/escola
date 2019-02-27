@@ -9,7 +9,10 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/grade.css"/>
 	<script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url() ?>assets/js/js.js"></script>
-
+	
+	<script>
+		var base_url = "<?php echo base_url() ?>";
+	</script>
 </head>
 
 <body>

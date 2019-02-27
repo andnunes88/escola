@@ -1,3 +1,4 @@
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/js_professor.js"></script>
 <?php include"menu.php";?>
 <div class="base-direito">
 	<div class="base-lista">
@@ -8,7 +9,7 @@
 			<div  class="row">		
 				<div class="col6">
 					<span>BUSCAR DE Professor</span>
-					<select name="txt_id_professor">
+					<select name="txt_id_professor" id="txt_id_professor">
 						<option value="">Selecione o Professor</option>
 						<?php 
 							foreach ($professores as $professor) {
@@ -20,7 +21,7 @@
 				</div>
 				<div class="col4">
 					<span>Disciplina</span>
-					<select name="txt_id_disciplina">
+					<select name="txt_id_disciplina" id="txt_id_disciplina">
 						<?php 
 							foreach ($disciplinas as $disciplina) {
 								
@@ -50,7 +51,7 @@
 		  
 		</tr>
 		</thead>
-		<tbody>
+		<tbody id="listaDisciplinas">
 			<?php
 				foreach ($lista as $linha) {
 				?>				

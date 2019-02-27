@@ -68,6 +68,32 @@ class Professor extends CI_Controller {
 	public function inserirDisciplinaProfessor(){
 		$this->load->model('M_professor');
 		$this->M_professor->inserirDisciplinaProfessor();
-		redirect("professor/disciplinaProfessor");
+		$id_professor = $this->input->post('txt_id_professor');
+		redirect("professor/disciplinaProfessor/".$id_professor);
+	}
+
+	public function listaDisciplinaProfessor($id_professor){
+		$this->load->model("M_Professor");
+		$consulta = $this->M_Professor->listaDisciplinaProfessor($id_professor)->result();
+		$retorno = "";
+
+		if($consulta){
+
+			foreach ($consulta as $linha) {
+							
+		        $retorno .= "<tr>";
+				$retorno .= "<td align='center' class='coluna1'> $linha->id_disciplina </td>";
+		        $retorno .= "<td align='left' class='coluna1'> $linha->disciplina </td>";
+				$retorno .= "<td align='center' class='coluna1'>";
+				$retorno .= "<td align='center' class='coluna1'>Excluir";
+				$retorno .= "</td></tr>";
+
+			} 	
+
+		}else{
+			$retorno = "Nunhum item";
+		}
+
+		echo $retorno;
 	}
 }
