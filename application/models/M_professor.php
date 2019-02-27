@@ -63,4 +63,29 @@ class M_professor extends CI_Model {
 	public function excluir($id){
 		return $this->db->where("id_professor", $id)->delete("professor");
 	}
+
+	public function inserirDisciplinaProfessor(){
+
+		$id_professor = $this->input->post("txt_id_professor");
+		$id_disciplina = $this->input->post("txt_id_disciplina");
+
+		$valores = array(
+			"id_professor" => $id_professor,
+			"id_disciplina" => $id_disciplina
+		);
+
+		$this->db->insert("disciplina_professor", $valores);
+	}
+
+	public function listaDisciplinaProfessor($id_professor){
+		
+		$this->db->select("disciplina.disciplina, disciplina_professor.*");
+		$this->db->from("disciplina_professor");
+		$this->db->join("professor", "professor.id_professor = disciplina_professor.id_professor");
+		$this->db->join("disciplina", "disciplina.id_disciplina = disciplina_professor.id_disciplina");
+		$this->db->where("disciplina_professor.id_professor", $id_professor);
+
+		return $this->db->get();
+
+	}
 }

@@ -44,7 +44,7 @@
         <ul>
 			<li><a href="<?php echo base_url() ?>professor">Listar/ editar</a></li>
 			<li><a href="<?php echo base_url() ?>professor/novo">Cadastrar</a></li>
-			<li><a href="index.php?link=15">Cadastrar disciplina</a></li>
+			<li><a href="<?php echo base_url() ?>professor/disciplinaProfessor">Cadastrar disciplina</a></li>
         </ul>
 	</li>
 	

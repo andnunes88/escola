@@ -4,20 +4,29 @@
 	<h1 class="titulo"><i class="icone cad"></i>CADASTRO DISCIPLINA PROFESSOR</h1>
 	<div class="backform">
 	<div class="base-form">
-		<form action="" name="">		
+		<form action="<?php echo base_url() ?>professor/inserirDisciplinaProfessor"" method="post">		
 			<div  class="row">		
 				<div class="col6">
-					<span>BUSCAR DE professor</span>
-					<select name="campo">
-						<option value="disciplina">Ano Letivo</option>
-						<option value="disciplina">Ano Letivo</option>
+					<span>BUSCAR DE Professor</span>
+					<select name="txt_id_professor">
+						<option value="">Selecione o Professor</option>
+						<?php 
+							foreach ($professores as $professor) {
+								
+								$valor = $professor->id_professor;
+								echo "<option value='$valor'>$professor->nome_professor</option>";
+						 }	?>
 					</select>	
 				</div>
 				<div class="col4">
 					<span>Disciplina</span>
-					<select name="campo">
-						<option value="disciplina">Ano Letivo</option>
-						<option value="disciplina">Ano Letivo</option>
+					<select name="txt_id_disciplina">
+						<?php 
+							foreach ($disciplinas as $disciplina) {
+								
+								$valor = $disciplina->id_disciplina;
+								echo "<option value='$valor'>$disciplina->disciplina</option>";
+						 }	?>
 					</select>
 				</div>
 				<div class="col2">
@@ -36,27 +45,29 @@
 		<thead>
 		<tr> 
 			<th align="center">ID</th>
-			<th align="left">Dispciplina</th> 
-			<th align="center">Abreviação</th> 
+			<th align="left" width="70%">Disciplina</th> 
 			<th colspan="2" align="center">Ação</th>
 		  
 		</tr>
 		</thead>
 		<tbody>
+			<?php
+				foreach ($lista as $linha) {
+				?>				
             <tr> 			
-				<td align="center" class="coluna1">1</td>
-                <td align="left" class="coluna1">	Desenho II - Arquitetônico</td>
-                <td align="center" class="coluna1">	DAQ</td>
-				<td align="center" class="coluna1"><a href="" class="but editar">Editar</a><a href="" class="but excluir">Excluir</a></td>
-						 
+				<td align="center" class="coluna1"><?php echo $linha->id_disciplina ?></td>
+                <td align="left" class="coluna1"><?php echo $linha->disciplina ?></td>
+				<td align="center" class="coluna1">
+					<a href="<?php echo base_url() . "/disciplina/editar/" . $linha->id_disciplina ?>" class="but editar">Editar</a>
+				</td>
+				<td align="center" class="coluna1">
+					<a href="<?php echo base_url() . "/disciplina/excluir/" . $linha->id_disciplina ?>" class="but excluir"
+						 onclick="return confirmar_exclusao('<?php echo $linha->disciplina; ?>')">Excluir</a>	
+				</td>
+
 			</tr>
-            <tr> 			
-				<td align="center" class="coluna2">1</td>               
-                <td align="left" class="coluna2">	Desenho II - Arquitetônico</td>
-                <td align="center" class="coluna2">	DAQ</td>
-				<td align="center" class="coluna2"><a href="" class="but editar">Editar</a><a href="" class="but excluir">Excluir</a></td>	 
-			</tr>
-            
+
+			<?php	} 	 ?>
 		</tbody>
 		</table>
 	</div>

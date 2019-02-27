@@ -46,4 +46,28 @@ class Professor extends CI_Controller {
 		$this->M_professor->excluir($id);
 		redirect("professor");
 	}
+
+	public function disciplinaProfessor($id_professor=NULL){
+
+		$this->load->model('M_professor');
+		$this->load->model('M_disciplina');
+
+		$dados['professores'] = $this->M_professor->listaProfessor()->result();
+		$dados['disciplinas'] = $this->M_disciplina->listaDisciplina()->result();
+
+		if($id_professor != NULL){
+			$dados['lista'] = $this->M_professor->listaDisciplinaProfessor($id_professor)->result();
+		}
+		
+		$dados['nome_view'] = 'v_frmDisciplinaProfessor';
+
+		$this->load->view('template', $dados);
+
+	}
+
+	public function inserirDisciplinaProfessor(){
+		$this->load->model('M_professor');
+		$this->M_professor->inserirDisciplinaProfessor();
+		redirect("professor/disciplinaProfessor");
+	}
 }

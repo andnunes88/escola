@@ -58,7 +58,9 @@
 				<td align="center" class="coluna1"><?php echo $linha->id_professor ?></td>
                 <td align="left" class="coluna1"><?php echo $linha->nome_professor ?></td>
                 <td align="center" class="coluna1"><?php echo $linha->email_professor ?></td>
+                <td><a href="<?php echo base_url() . "/professor/disciplinaProfessor/" . $linha->id_professor ?>" class="but editar">Disciplinas </a></td>
 				<td align="center" class="coluna1">
+
 					<a href="<?php echo base_url() . "/professor/editar/" . $linha->id_professor ?>" class="but editar">Editar</a>
 					<a href="<?php echo base_url() . "/professor/excluir/" . $linha->id_professor ?>" class="but excluir"
 						onclick="return confirmar_exclusao('<?php echo $linha->nome_professor; ?>')">Excluir</a>
