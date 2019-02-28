@@ -24,18 +24,19 @@ function inserirDisciplinaProfessor(){
 	id_professor = $("#txt_id_professor").val();
 	id_disciplina = $("#txt_id_disciplina").val();
 
+	
 	$.ajax({
 
-		url: base_url + "professor/inserirDisciplinaProfessor",
+		url: base_url + "professor/inserirDisciplinaProfessor2",
 		type: "post",
 		data: {
-			id_professor: id_professor,
-			id_disciplina: id_disciplina
+			txt_id_professor: id_professor,
+			txt_id_disciplina: id_disciplina
 		},
 		success: function(){
 			listaDisciplinaProfessor(id_professor);
 		}
 
-
 	});
+	
 }

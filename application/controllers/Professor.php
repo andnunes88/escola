@@ -96,4 +96,10 @@ class Professor extends CI_Controller {
 
 		echo $retorno;
 	}
+
+	public function inserirDisciplinaProfessor2(){
+		$this->load->model("M_Professor");
+
+		$resultado = $this->M_Professor->inserirDisciplinaProfessor();
+	}
 }

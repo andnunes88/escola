@@ -32,7 +32,7 @@
 				</div>
 				<div class="col2">
 					<span>&nbsp;</span>
-					<input type="submit" name="Submit" value="Inserir" class="but">
+					<input type="button" name="Submit" value="Inserir" onclick="inserirDisciplinaProfessor()" class="but">
 				</div>
 			</div>	
 		</form>
@@ -53,22 +53,23 @@
 		</thead>
 		<tbody id="listaDisciplinas">
 			<?php
-				foreach ($lista as $linha) {
+			foreach ($lista as $linha) {
 				?>				
-            <tr> 			
-				<td align="center" class="coluna1"><?php echo $linha->id_disciplina ?></td>
-                <td align="left" class="coluna1"><?php echo $linha->disciplina ?></td>
-				<td align="center" class="coluna1">
-					<a href="<?php echo base_url() . "/disciplina/editar/" . $linha->id_disciplina ?>" class="but editar">Editar</a>
-				</td>
-				<td align="center" class="coluna1">
-					<a href="<?php echo base_url() . "/disciplina/excluir/" . $linha->id_disciplina ?>" class="but excluir"
-						 onclick="return confirmar_exclusao('<?php echo $linha->disciplina; ?>')">Excluir</a>	
-				</td>
+				<tr> 			
+					<td align="center" class="coluna1"><?php echo $linha->id_disciplina ?></td>
+					<td align="left" class="coluna1"><?php echo $linha->disciplina ?></td>
+					<td align="center" class="coluna1">
+						<a href="<?php echo base_url() . "/disciplina/editar/" . $linha->id_disciplina ?>" class="but editar">Editar</a>
+					</td>
+					<td align="center" class="coluna1">
+						<a href="<?php echo base_url() . "/disciplina/excluir/" . $linha->id_disciplina ?>" class="but excluir"
+							onclick="return confirmar_exclusao('<?php echo $linha->disciplina; ?>')">Excluir</a>	
+						</td>
 
-			</tr>
+					</tr>
 
-			<?php	} 	 ?>
+				<?php	} 	 ?>
+			
 		</tbody>
 		</table>
 	</div>
