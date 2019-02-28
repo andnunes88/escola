@@ -1,4 +1,4 @@
-###################
+﻿###################
 Sistema Escolar
 ###################
 
@@ -8,11 +8,11 @@ Sistema feito para gerenciar uma pequena escola.
 Em desenvolvimento 
 *******************
 
-| Modulos   | Status        |
-| ----------|:-------------:|
-| Diretoria | Em construção |
-| Aluno     | Pendente      |
-| Professor | Pendente      |
+# Modulos   
+
+## Diretoria -> Em construção 
+## Aluno     -> Pendente      
+## Professor -> Pendente      
 
 *******************
 Tecnologias usadas no projeto.
