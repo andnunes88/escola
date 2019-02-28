@@ -40,3 +40,20 @@ function inserirDisciplinaProfessor(){
 	});
 	
 }
+
+function excluirDisciplinaProfessor(id_disciplina, id_professor){
+
+	$.ajax({
+
+		url: base_url + "professor/excluirDisciplinaProfessor",
+		type: "post",
+		data: {
+			txt_id_professor: id_professor,
+			txt_id_disciplina: id_disciplina
+		},
+		success: function(){
+			listaDisciplinaProfessor(id_professor);
+		}
+
+	});
+}

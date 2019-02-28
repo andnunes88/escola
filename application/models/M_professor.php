@@ -88,4 +88,14 @@ class M_professor extends CI_Model {
 		return $this->db->get();
 
 	}
+
+	public function excluirDisciplinaProfessor(){
+		$id_professor = $this->input->post("txt_id_professor");
+		$id_disciplina = $this->input->post("txt_id_disciplina");
+
+		$this->db->where("id_professor", $id_professor);
+		$this->db->where("id_disciplina", $id_disciplina);
+		$this->db->delete("disciplina_professor");
+
+	}
 }

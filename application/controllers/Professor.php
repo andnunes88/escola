@@ -85,7 +85,7 @@ class Professor extends CI_Controller {
 				$retorno .= "<td align='center' class='coluna1'> $linha->id_disciplina </td>";
 		        $retorno .= "<td align='left' class='coluna1'> $linha->disciplina </td>";
 				$retorno .= "<td align='center' class='coluna1'>";
-				$retorno .= "<td align='center' class='coluna1'>Excluir";
+				$retorno .= "<a href='javascript:void(0)' onclick='excluirDisciplinaProfessor($linha->id_disciplina, $linha->id_professor)'> Excluir </a>";
 				$retorno .= "</td></tr>";
 
 			} 	
@@ -101,5 +101,11 @@ class Professor extends CI_Controller {
 		$this->load->model("M_Professor");
 
 		$resultado = $this->M_Professor->inserirDisciplinaProfessor();
+	}
+
+	public function excluirDisciplinaProfessor(){
+		$this->load->model("M_Professor");
+
+		$resultado = $this->M_Professor->excluirDisciplinaProfessor();
 	}
 }
