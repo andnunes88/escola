@@ -97,6 +97,13 @@ class Professor extends CI_Controller {
 		echo $retorno;
 	}
 
+	public function listaDisciplinaProfessorJson($id_professor){
+		$this->load->model("M_Professor");
+		$consulta = $this->M_Professor->listaDisciplinaProfessor($id_professor)->result();
+		
+		echo json_encode($consulta);
+	}
+
 	public function inserirDisciplinaProfessor2(){
 		$this->load->model("M_Professor");
 

@@ -9,13 +9,28 @@ $(function(){
 });
 
 function listaDisciplinaProfessor(id_professor){
+	retorno = "";
+	i = 0;
 	
 	$.ajax({
-		url: base_url + "professor/listaDisciplinaProfessor/"+ id_professor,
+		url: base_url + "professor/listaDisciplinaProfessorJson/"+ id_professor,
 		type: "get",
+		dataType: "Json",
 		success: function(data){
 			
-			$("#listaDisciplinas").html(data);
+			$.each(data, function(key){
+
+				retorno += "<tr>";
+				retorno += "<td align='center' class='coluna1'>" + data[key].id_disciplina + "</td>";
+		        retorno += "<td align='left' class='coluna1'>" + data[key].disciplina + "</td>";
+				retorno += "<td align='center' class='coluna1'>";
+				retorno += "<a href='javascript:void(0)' onclick='excluirDisciplinaProfessor(" + data[key].id_disciplina + "," + data[key].id_professor + ")'> Excluir </a>";
+				retorno += "</td></tr>";
+				i++;
+				//console.log(data[key].disciplina);
+			});
+			
+			$("#listaDisciplinas").html(retorno);
 		}
 	});
 }

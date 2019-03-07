@@ -74,7 +74,34 @@ class M_professor extends CI_Model {
 			"id_disciplina" => $id_disciplina
 		);
 
-		$this->db->insert("disciplina_professor", $valores);
+		if(!$this->verificaSeTemDisciplina($id_disciplina, $id_professor)){
+
+			return $this->db->insert("disciplina_professor", $valores);
+
+		}else{
+
+			return false;
+		}
+		
+	}
+
+	public function verificaSeTemDisciplina($id_disciplina, $id_professor){
+
+		$id_professor = $this->input->post("txt_id_professor");
+		$id_disciplina = $this->input->post("txt_id_disciplina");
+
+		$this->db->where("id_professor", $id_professor);
+		$this->db->where("id_disciplina", $id_disciplina);
+
+		if($this->db->get("disciplina_professor")->num_rows() > 0){
+			
+			return true;
+
+		}else{
+			
+			return false;
+		}		
+
 	}
 
 	public function listaDisciplinaProfessor($id_professor){
